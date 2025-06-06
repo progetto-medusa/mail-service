@@ -4,6 +4,7 @@ import com.progetto_medusa.mail_service.model.MailFromFormDTO;
 
 import com.progetto_medusa.mail_service.model.Request.UserRequestForm;
 import com.progetto_medusa.mail_service.model.UserDTO;
+import com.progetto_medusa.mail_service.model.response.MailResponse;
 import com.progetto_medusa.mail_service.service.MailServiceImpl;
 import com.progetto_medusa.mail_service.util.MessageBuilder;
 import jakarta.mail.MessagingException;
@@ -49,11 +50,11 @@ public class MailController{
         return new ResponseEntity(HttpStatus.OK);
     }
     @PostMapping ("/reset-password")
-    public ResponseEntity resetPassword(HttpServletRequest httpServletRequest, @Valid @RequestBody UserRequestForm userRequestForm) throws MessagingException {
+    public ResponseEntity<Object> resetPassword(HttpServletRequest httpServletRequest, @Valid @RequestBody UserRequestForm userRequestForm) throws MessagingException {
         log.info("User ResetPasswordForm START -> {}", userRequestForm);
         String text = messageBuilder.newPassword(userRequestForm);
         mailService.sendSimpleMessage(userRequestForm.getMail(), OBJECT_5, text);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 

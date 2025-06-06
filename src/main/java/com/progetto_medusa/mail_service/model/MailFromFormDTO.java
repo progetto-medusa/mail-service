@@ -11,8 +11,8 @@ public class MailFromFormDTO {
     @JsonProperty("username")
     private String username;
     @NotBlank(message = "email is mandatory")
-    @JsonProperty("mail")
-    private String mail;
+    @JsonProperty("email")
+    private String email;
     @NotBlank(message = "message is mandatory")
     @JsonProperty("message")
     private String message;

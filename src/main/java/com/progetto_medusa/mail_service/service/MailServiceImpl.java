@@ -1,7 +1,6 @@
 package com.progetto_medusa.mail_service.service;
 
 import com.progetto_medusa.mail_service.model.NewCourseMailRequest;
-import com.progetto_medusa.mail_service.model.components.UserGuiDTO;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +20,6 @@ public class MailServiceImpl {
  //   private static final String ADMIN_2_EMAIL = "";
 
     private final JavaMailSender emailSender;
-    private final ExternalCallingService externalCallingService;
 
     public void sendContactRequestMessage(String to, String subject, String text) throws MessagingException {
         MimeMessage message = messageSetup();
