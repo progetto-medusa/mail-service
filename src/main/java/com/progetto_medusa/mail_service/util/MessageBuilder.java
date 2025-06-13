@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 public class MessageBuilder {
 
     public String confirmEmailSubcription(UserRequestForm userRequestForm) {
-        return "<p>\n" + "  <b>Grazie per aver scelto la nostra applicazione!</b> <br /><br />Per confermare l'iscrizione clicca sul link riportato sotto.\n"
-                /*+ inserire link conferma*/ + "<br />Grazie per averci scelto<br />\n" + "  <br />\n"
+        return "<p>\n" + "  <b>Grazie per aver scelto la nostra applicazione!</b> <br /><br />Per confermare l'iscrizione clicca sul link riportato sotto.\n"+"https://progetto-medusa.netlify.app/confirm?token="+userRequestForm.getConfirmationToken()+
+                  "<br />Grazie per averci scelto<br />\n" + "  <br />\n"
                 + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
 
