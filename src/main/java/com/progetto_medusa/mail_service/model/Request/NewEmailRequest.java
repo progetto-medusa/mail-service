@@ -8,14 +8,11 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRequestForm {
+public class NewEmailRequest {
 
     @NotBlank
     private String mail;
     @NotBlank
     private String username;
-    @NotBlank
-    private String password;
-    @NotBlank
-    private String confirmationToken;
+
 }
