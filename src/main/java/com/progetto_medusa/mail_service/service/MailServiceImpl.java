@@ -1,7 +1,7 @@
 package com.progetto_medusa.mail_service.service;
 
 import com.progetto_medusa.mail_service.model.NewCourseMailRequest;
-import com.progetto_medusa.mail_service.model.components.UserGuiDTO;
+import com.progetto_medusa.mail_service.model.UserDTO;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class MailServiceImpl {
  //   private static final String ADMIN_2_EMAIL = "";
 
     private final JavaMailSender emailSender;
-    private final ExternalCallingService externalCallingService;
+
 
     public void sendContactRequestMessage(String to, String subject, String text) throws MessagingException {
         MimeMessage message = messageSetup();
@@ -43,17 +44,25 @@ public class MailServiceImpl {
         emailSender.send(message);
     }
 
-    private MimeMessage messageSetup(){
+    public MimeMessage messageSetup(){
         return emailSender.createMimeMessage();
     }
 
-    private MimeMessageHelper helperSetup(MimeMessage message) throws MessagingException {
+    public MimeMessageHelper helperSetup(MimeMessage message) throws MessagingException {
         return new MimeMessageHelper(message, true);
     }
 
-    private void adminSender(MimeMessage message, MimeMessageHelper helper, String adminMail) throws MessagingException {
+    public void adminSender(MimeMessage message, MimeMessageHelper helper, String adminMail) throws MessagingException {
         helper.setTo(adminMail);
         emailSender.send(message);
+    }
+
+    public List<String> getAllMail(UserDTO userDTO) {
+        ExternalCallingService externalCallingService;
+        return externalCallingService.getAllUsers(userDTO)
+                .stream()
+                .map(UserDTO::getMail)
+                .collect(Collectors.toList());
     }
 
 }

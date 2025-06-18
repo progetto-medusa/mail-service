@@ -18,5 +18,5 @@ public class MailFromFormDTO {
     private String message;
     @NotBlank(message = "application_id is mandatory")
     @JsonProperty("application_id")
-    private String applitcationId;
+    private String applicationId;
 }

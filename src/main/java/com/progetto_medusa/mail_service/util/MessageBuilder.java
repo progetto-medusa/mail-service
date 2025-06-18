@@ -24,14 +24,6 @@ public class MessageBuilder {
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }
 
-//da finire
-    /*public String newContact(MailFromFormDTO mailFromFormDTO) {
-        return "<p>Salve, c'&egrave; una nuova richiesta di contatto dalla piattaforma, di seguito i dettagli:<br />\n" + "  <br />\n" + "  - <u>Nome:</u> "
-                + mailFromFormDTO.getName() + "<br />\n" + "  - <u>Email:</u> " + mailFromFormDTO.getMail() + "<br />\n"
-                + "  <br />Di seguito il testo del messaggio:<br /><br /><i>\n" + mailFromFormDTO.getMessage()
-                + "</i><br /><br /><b>Contattalo al pi&ugrave; presto per approfondire</b></p><img style=\"width: 300px; height: 78px\"\n"
-                + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
-    }*/
 
     public String newPassword(UserRequestForm userRequestForm){
         return "<p>\n" + "  <b>Richiesta di cambio password accettata.</b> <br /><br />Ti diamo il benvenuto/a nella nostra\n"
@@ -49,4 +41,27 @@ public class MessageBuilder {
                 + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }*/
+
+
+    public String customMessage(UserDTO userDTO) {
+        return "Ciao, " + userDTO.getUsername() + ", ti stiamo mandando un messaggio";
+    }
+
+
+    public String newSubscriptionToCampaign(UserDTO userDTO) {
+        return "<p>Grazie per esserti iscritto, " + userDTO.getUsername() + "!</p>";
+    }
+
+
+    public String buildGameSessionStart(UserDTO userDTO) {
+        return "<h1>Missiva di convocazione</h1>"
+                + "<p>Ciao " + userDTO.getUsername()
+                + ", la tua sessione di gioco sta per iniziare. Preparati a entrare in azione!</p>";
+    }
+
+
+    public String buildMaintenanceNotice() {
+        return "<h1>Manutenzione dell'app in corso</h1>"
+                + "<p>Stiamo eseguendo operazioni programmate. Il servizio tornerà disponibile a breve. Grazie per la pazienza.</p>";
+    }
 }

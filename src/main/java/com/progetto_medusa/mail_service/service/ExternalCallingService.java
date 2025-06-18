@@ -2,7 +2,7 @@ package com.progetto_medusa.mail_service.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.progetto_medusa.mail_service.config.OkHttpClientCustom;
-import com.progetto_medusa.mail_service.model.components.UserGuiDTO;
+import com.progetto_medusa.mail_service.model.UserDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
@@ -22,7 +22,7 @@ public class ExternalCallingService {
     private final ObjectMapper objectMapper;
     private final OkHttpClientCustom okHttpClientCustom;
 
-    public List<UserGuiDTO> retrieveUserData() throws IOException {
+    public List<UserDTO> retrieveUserData() throws IOException {
         String url = USER_SERVICE_URL + "role";
         HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
 
@@ -40,7 +40,7 @@ public class ExternalCallingService {
 
         String responseBody = response.body().string();
 
-        return objectMapper.readValue(responseBody, objectMapper.getTypeFactory().constructCollectionType(List.class, UserGuiDTO.class));
+        return objectMapper.readValue(responseBody, objectMapper.getTypeFactory().constructCollectionType(List.class, UserDTO.class));
 
     }
 }
