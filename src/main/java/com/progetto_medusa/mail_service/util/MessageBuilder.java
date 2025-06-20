@@ -9,7 +9,7 @@ public class MessageBuilder {
     public String confirmEmailSubcription(UserDTO userDTO) {
         return "<p>\n" + "  <b>Grazie per aver scelto la nostra applicazione!</b> <br /><br />Per confermare l'iscrizione clicca sul link riportato sotto.\n"+"https://progetto-medusa.netlify.app/activate-user?token="+userDTO.getConfirmationToken()+
                   "<br />Grazie per averci scelto<br />\n" + "  <br />\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team di Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
 
     }
@@ -17,7 +17,7 @@ public class MessageBuilder {
         return "<p>\n" + "  <b>Congratulazioni!</b> <br /><br />Ti diamo il benvenuto/a nella nostra\n"
                 + "  piattaforma<br /><br />Per accedere alla piattaforma utilizza le seguenti\n" + "  credenziali:<br />\n" + "  <br />\n" + "  - <u>Email:</u> "
                 + userDTO.getMail() + "<br />\n" + "  - <u>Password:</u> " + userDTO.getPassword() + "<br />Grazie per averci scelto<br />\n" + "  <br />\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team di Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }*/
 
@@ -26,27 +26,27 @@ public class MessageBuilder {
         return "<p>\n" + "  <b>Richiesta di cambio password accettata.</b> <br /><br />Ti diamo il benvenuto/a nella nostra\n"
                 + "  piattaforma<br /><br />Per accedere momentaneamente alla piattaforma utilizza le seguenti\n" + "  credenziali:<br />\n" + "  <br />\n" + "  - <u>Email:</u> "
                 + userDTO.getMail() + "<br />\n" + "  - <u>Password:</u> " + userDTO.getPassword() + "<br />Se hai ulteriori problemi ad accedere non esitare a contattarci<br />\n" + "  <br />\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team di Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }
 
 
     public String customMessage(UserDTO userDTO) {
         return "Ciao, " + userDTO.getUsername() + ", ti stiamo mandando un messaggio\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }
 
     public String newCampaignToUser(UserDTO userDTO) {
         return "<p>Ciao! " + userDTO.getUsername() + "!</p>  E' disponibile una nuova campagna per te" /*+ INSERIRE NOME CAMPAGNA;*/ + " </p> Per iscriverti accedi all'applicazione e sottoscrivi la partecipazione \n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
 
     }
 
     public String newSubscriptionToCampaign(UserDTO userDTO) {
         return "<p>Grazie! " + userDTO.getUsername() + "!</p>  per esserti iscritto alla Campagna \n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team di Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
 
     }
@@ -56,7 +56,7 @@ public class MessageBuilder {
         return "<h1>Missiva di convocazione</h1>"
                 + "<p>Ciao " + userDTO.getUsername()
                 + ", la tua sessione di gioco sta per iniziare. Preparati a entrare in azione!</p>\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team di Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }
 
@@ -64,7 +64,7 @@ public class MessageBuilder {
     public String newMaintenanceNotice() {
         return "<h1>Manutenzione dell'app in corso</h1>"
                 + "<p>Stiamo eseguendo operazioni programmate. Il servizio tornerà disponibile a breve. Grazie per la pazienza.</p>\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team di Medusa>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }
 
