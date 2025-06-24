@@ -58,7 +58,7 @@ public class MailController{
     public ResponseEntity<Object> resetPassword(HttpServletRequest httpServletRequest,
                                                 @Valid @RequestBody NewPasswordRequest newPasswordRequest) throws MessagingException {
         log.info("User ResetPasswordForm START -> {}", newPasswordRequest);
-        UserDTO userDTO = emailConverter.resetPasswordEmailRequestToUserDTO(newPasswordRequest);
+        UserDTO userDTO = emailConverter.resetPassword(newPasswordRequest);
         String text = messageBuilder.newPassword(userDTO);
         mailService.sendSimpleMessage(userDTO.getMail(), OBJECT_3, text);
         return new ResponseEntity<>(HttpStatus.OK);

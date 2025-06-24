@@ -16,7 +16,7 @@ public class MessageBuilder {
 
     public String newPassword(UserDTO userDTO){
         return "<p>\n" + "  <b>Richiesta di cambio password accettata.</b> \n <br />Ti diamo il benvenuto/a nella nostra\n"
-                + "  piattaforma<br /><br />Per cambiare la password clicca sul seguente link \n" + "  - <u>Token:</u> " + userDTO.getConfirmationToken() + "<br />Se hai ulteriori problemi ad accedere non esitare a contattarci<br />\n" + "  <br />\n"
+                + "  piattaforma<br /><br />Per cambiare la password copia e il seguente token e inseriscilo sulla piattafora per accedere.\n" + "  - <u>Token:</u> " + userDTO.getConfirmationToken() + "<br />Se hai ulteriori problemi ad accedere non esitare a contattarci<br />\n" + "  <br />\n"
                 + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa Project>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }

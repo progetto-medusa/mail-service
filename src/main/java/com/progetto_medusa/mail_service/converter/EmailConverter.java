@@ -30,7 +30,7 @@ public class EmailConverter {
 
         return userDTO;
     }
-    public UserDTO resetPasswordEmailRequestToUserDTO (NewPasswordRequest newPasswordRequest){
+    public UserDTO resetPassword (NewPasswordRequest newPasswordRequest){
         UserDTO userDTO= new UserDTO();
         userDTO.setMail(newPasswordRequest.getEmail());
         userDTO.setConfirmationToken(newPasswordRequest.getToken());
