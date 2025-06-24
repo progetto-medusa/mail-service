@@ -61,7 +61,7 @@ public class MessageBuilder {
         return "<h1>Missiva di convocazione</h1>"
                 + "<p>Ciao " + userDTO.getUsername()
                 + ", la tua sessione di gioco sta per iniziare. Preparati a entrare in azione!</p>\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa Project>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }
 
@@ -69,8 +69,8 @@ public class MessageBuilder {
     public String newMaintenanceNotice() {
         return "<h1>Manutenzione dell'app in corso</h1>"
                 + "<p>Stiamo eseguendo operazioni programmate. Il servizio tornerà disponibile a breve. Grazie per la pazienza.</p>\n"
-                + "  Cordiali saluti,<br />\n" + "  <i>il Team di StoCazzo/i>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
-                + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
+                + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa Project>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
+                + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" ;
     }
 
 }
