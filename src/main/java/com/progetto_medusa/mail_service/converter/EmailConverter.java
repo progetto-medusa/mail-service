@@ -1,6 +1,8 @@
 package com.progetto_medusa.mail_service.converter;
 
 import com.progetto_medusa.mail_service.model.Request.NewEmailRequest;
+import com.progetto_medusa.mail_service.model.Request.NewPasswordRequest;
+import com.progetto_medusa.mail_service.model.Request.ResetPasswordEmailRequest;
 import com.progetto_medusa.mail_service.model.Request.UserRequestForm;
 import com.progetto_medusa.mail_service.model.UserDTO;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +30,21 @@ public class EmailConverter {
 
         return userDTO;
     }
+    public UserDTO resetPasswordEmailRequestToUserDTO (NewPasswordRequest newPasswordRequest){
+        UserDTO userDTO= new UserDTO();
+        userDTO.setMail(newPasswordRequest.getEmail());
+        userDTO.setConfirmationToken(newPasswordRequest.getToken());
+
+        return userDTO;
+    }
+
+    public UserDTO resetPasswordConfirmed (ResetPasswordEmailRequest resetPasswordEmailRequest){
+        UserDTO userDTO= new UserDTO();
+        userDTO.setMail(resetPasswordEmailRequest.getEmail());
+
+        return userDTO;
+    }
+
+
 
 }

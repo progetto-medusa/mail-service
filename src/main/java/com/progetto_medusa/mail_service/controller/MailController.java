@@ -3,6 +3,8 @@ package com.progetto_medusa.mail_service.controller;
 
 
 import com.progetto_medusa.mail_service.converter.EmailConverter;
+import com.progetto_medusa.mail_service.model.Request.NewPasswordRequest;
+import com.progetto_medusa.mail_service.model.Request.ResetPasswordEmailRequest;
 import com.progetto_medusa.mail_service.model.Request.UserRequestForm;
 import com.progetto_medusa.mail_service.model.UserDTO;
 import com.progetto_medusa.mail_service.service.ExternalCallingService;
@@ -34,6 +36,7 @@ public class MailController{
     public static final String OBJECT_6 = " ";
     public static final String OBJECT_7 = " ";
     public static final String OBJECT_8 = " ";
+    public static final String OBJECT_9 = " ";
 
     private final MailServiceImpl mailService;
     private final MessageBuilder messageBuilder;
@@ -51,23 +54,23 @@ public class MailController{
         return new ResponseEntity(HttpStatus.OK);
     }
 
-   /* @PostMapping("/new-member")
-    public ResponseEntity newSubscriber(HttpServletRequest httpServletRequest, @Valid @RequestBody UserRequestForm userRequestForm) throws MessagingException {
-        log.info("NewSubscriber Mail sender start with request -> {}", userRequestForm);
-        UserDTO userDTO = converterUserRequestToUserDTO.userRequestFormToUserDTO(userRequestForm);
-        String text = messageBuilder.newSubscription(userDTO);
-        mailService.sendSimpleMessage(userDTO.getMail(), OBJECT_2, text);
-        return new ResponseEntity(HttpStatus.OK);
-    }*/
-
-
     @PostMapping ("/reset-password")
     public ResponseEntity<Object> resetPassword(HttpServletRequest httpServletRequest,
-                                                @Valid @RequestBody UserRequestForm userRequestForm) throws MessagingException {
-        log.info("User ResetPasswordForm START -> {}", userRequestForm);
-        UserDTO userDTO = emailConverter.userRequestFormToUserDTO(userRequestForm);
+                                                @Valid @RequestBody NewPasswordRequest newPasswordRequest) throws MessagingException {
+        log.info("User ResetPasswordForm START -> {}", newPasswordRequest);
+        UserDTO userDTO = emailConverter.resetPasswordEmailRequestToUserDTO(newPasswordRequest);
         String text = messageBuilder.newPassword(userDTO);
         mailService.sendSimpleMessage(userDTO.getMail(), OBJECT_3, text);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping ("/reset-password-Confirmed")
+    public ResponseEntity<Object> resetPasswordConfirmed(HttpServletRequest httpServletRequest,
+                                                @Valid @RequestBody ResetPasswordEmailRequest resetPasswordEmailRequest) throws MessagingException {
+        log.info("User ResetPassword-Confirmed START -> {}", resetPasswordEmailRequest);
+        UserDTO userDTO = emailConverter.resetPasswordConfirmed(resetPasswordEmailRequest);
+        String text = messageBuilder.newPasswordConfirmed(userDTO);
+        mailService.sendSimpleMessage(userDTO.getMail(), OBJECT_7, text);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -79,6 +82,17 @@ public class MailController{
         UserDTO userDTO = emailConverter.newEmailRequestToUserDTO(newEmailRequest);
         String text = messageBuilder.newCampaignToUser(userDTO);
         mailService.sendSimpleMessage(userDTO.getMail(), OBJECT_4, text);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/new-campaign-4master")
+    public ResponseEntity<Void> newCampaignForMaster(HttpServletRequest request,
+                                                     @Valid @RequestBody NewEmailRequest newEmailRequest) throws Exception {
+        log.info("NewCampaignAvaliable Mail sender start from {} with requestForm -> {}",
+                request.getRemoteAddr(), newEmailRequest);
+        UserDTO userDTO = emailConverter.newEmailRequestToUserDTO(newEmailRequest);
+        String text = messageBuilder.newCampaignToMaster(userDTO);
+        mailService.sendSimpleMessage(userDTO.getMail(), OBJECT_9, text);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
