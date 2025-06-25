@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class MessageBuilder {
 
     public String confirmEmailSubcription(UserDTO userDTO) {
-        return "<p>\n" + "  <b>Grazie per aver scelto la nostra applicazione!</b> <br /><br />Per confermare l'iscrizione clicca sul link riportato sotto.\n"+"https://progetto-medusa.netlify.app/confirm?token="+userDTO.getConfirmationToken()+
+        return "<p>\n" + "  <b>Grazie per aver scelto la nostra applicazione!</b> <br /><br />Per confermare l'iscrizione clicca sul link riportato sotto.\n"+"http://localhost:3000/confirm?token=" + userDTO.getConfirmationToken()+
                   "<br />Grazie per averci scelto<br />\n" + "  <br />\n"
                 + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa Project>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
@@ -15,8 +15,9 @@ public class MessageBuilder {
     }
 
     public String newPassword(UserDTO userDTO){
+
         return "<p>\n" + "  <b>Richiesta di cambio password accettata.</b> \n <br />Ti diamo il benvenuto/a nella nostra\n"
-                + "  piattaforma<br /><br />Per cambiare la password clicca sul seguente link \n" + "  - <u>Token:</u> " + userDTO.getConfirmationToken() + "<br />Se hai ulteriori problemi ad accedere non esitare a contattarci<br />\n" + "  <br />\n"
+                + "  piattaforma<br /><br />Per cambiare la password clicca sul seguente link \n" +"http://localhost:3000/recovery?token=" + userDTO.getConfirmationToken() + "<br />Se hai ulteriori problemi ad accedere non esitare a contattarci<br />\n" + "  <br />\n"
                 + "  Cordiali saluti,<br />\n" + "  <i>il Team Medusa Project>\n" + "</p>\n" + "<img\n" + "  style=\"width: 300px; height: 78px\"\n"
                 + "  src=\"logo.png\"\n" + "  alt=\"Immagine\"\n" + "/>";
     }

@@ -64,7 +64,7 @@ public class MailController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping ("/reset-password-Confirmed")
+    @PostMapping ("/reset-password-confirmed")
     public ResponseEntity<Object> resetPasswordConfirmed(HttpServletRequest httpServletRequest,
                                                 @Valid @RequestBody ResetPasswordEmailRequest resetPasswordEmailRequest) throws MessagingException {
         log.info("User ResetPassword-Confirmed START -> {}", resetPasswordEmailRequest);
